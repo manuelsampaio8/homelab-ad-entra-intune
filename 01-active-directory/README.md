@@ -49,3 +49,22 @@ e não um disco "Unattended" gerado automaticamente.
 - [ ] Promover a Domain Controller (AD DS + DNS)
 - [ ] Configurar DHCP
 - [ ] Criar OUs e utilizadores de teste
+
+
+## Configuração de rede e promoção a Domain Controller
+
+- IP estático configurado: 192.168.10.10 /24, gateway 192.168.10.1, DNS 127.0.0.1
+- Servidor renomeado para DC01
+- Role AD DS instalada via PowerShell
+- Promovido a Domain Controller da floresta `lab.local` (NetBIOS: LAB)
+
+### Confirmação
+Login já reflete o domínio (`LAB\Administrator`):
+![Login LAB Administrator](screenshots/login-lab-administrator.png)
+
+Output do `Get-ADDomain` confirma o domínio operacional:
+![Get-ADDomain output](screenshots/get-addomain-output.png)
+
+- DomainMode: Windows2016Domain
+- PDCEmulator: DC01.lab.local
+- DNSRoot: lab.local
